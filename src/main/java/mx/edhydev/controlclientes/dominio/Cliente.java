@@ -6,7 +6,7 @@ public class Cliente {
     private String apellidos;
     private String email;
     private String telefono;
-    private String saldo;
+    private Double saldo;
 
     public Cliente() {
     }
@@ -15,7 +15,7 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
-    public Cliente(int idCliente, String nombre, String apellidos, String email, String telefono, String saldo) {
+    public Cliente(int idCliente, String nombre, String apellidos, String email, String telefono, Double saldo) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -24,7 +24,7 @@ public class Cliente {
         this.saldo = saldo;
     }
 
-    public Cliente(String nombre, String apellidos, String email, String telefono, String saldo) {
+    public Cliente(String nombre, String apellidos, String email, String telefono, Double saldo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
@@ -72,11 +72,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getSaldo() {
+    public Double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(String saldo) {
+    public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
 
