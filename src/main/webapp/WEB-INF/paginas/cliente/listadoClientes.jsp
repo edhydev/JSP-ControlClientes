@@ -60,3 +60,6 @@
         </div>
     </div>
 </section>
+
+<!-- Agregar cliente MODAL -->
+<jsp:include page="agregarCliente.jsp"/>
