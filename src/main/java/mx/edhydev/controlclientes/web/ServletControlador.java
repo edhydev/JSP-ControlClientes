@@ -24,7 +24,7 @@ public class ServletControlador extends HttpServlet {
                     this.editarCliente(request, response);
                     break;
                 case "eliminar":
-                    this.insertarCliente(request, response);
+                    this.eliminarCliente(request, response);
                     break;
                 default:
                     this.accionDefault(request, response);
@@ -114,6 +114,19 @@ public class ServletControlador extends HttpServlet {
 
         int registrosModificados = new ClienteDaoImpl().actualizar(cliente);
         System.out.println("Registros actualizados: " + registrosModificados);
+        // Redirigimos hacia acción por default
+        this.accionDefault(request, response);
+    }
+
+    private void eliminarCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
+
+        // Creamos el objeto del cliente
+        Cliente cliente = new Cliente(idCliente);
+
+        int registrosModificados = new ClienteDaoImpl().eliminar(cliente);
+        System.out.println("Registros eliminados: " + registrosModificados);
+
         // Redirigimos hacia acción por default
         this.accionDefault(request, response);
     }
