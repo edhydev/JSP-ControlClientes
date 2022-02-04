@@ -13,12 +13,17 @@ public class Conexion {
     private static final String JDBC_USER = "edgar";
     private static final String JDBC_PASSWORD = "1234";
 
+    private static BasicDataSource dataSource;
+
     public static DataSource getDataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl(JDBC_URL);
-        dataSource.setUsername(JDBC_USER);
-        dataSource.setPassword(JDBC_PASSWORD);
-        dataSource.setInitialSize(12);
+        if (dataSource == null) {
+            dataSource = new BasicDataSource();
+            dataSource.setUrl(JDBC_URL);
+            dataSource.setUsername(JDBC_USER);
+            dataSource.setPassword(JDBC_PASSWORD);
+            dataSource.setInitialSize(12);
+        }
+
         return dataSource;
     }
 
