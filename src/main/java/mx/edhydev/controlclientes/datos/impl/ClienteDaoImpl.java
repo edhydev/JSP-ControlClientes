@@ -67,7 +67,8 @@ public class ClienteDaoImpl implements ClienteDao {
             statement = conn.prepareStatement(SQL_SELECT_BY_ID);
             statement.setInt(1, cliente.getIdCliente());
             resultSet = statement.executeQuery();
-            resultSet.absolute(1);
+
+            resultSet.next();
 
             cliente.setNombre(resultSet.getString("nombre"));
             cliente.setApellidos(resultSet.getString("apellidos"));
